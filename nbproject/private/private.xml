@@ -4,10 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Models/TransactionManager.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Controllers/FinanceController.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Services/transaction/TransactionValidationService.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/persistence/DAO/TypeTransactionDAO.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Models/Transaction.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Views/FinanceView.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Main/Main.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Services/typeTransaction/TypeTransactionService.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Services/typeTransaction/TypeTransactionValidationService.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Services/exceptions/ServiceException.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Services/exceptions/</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/persistence/exceptions/DAOException.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Controllers/FinanceController.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/persistence/DAOImplementations/TransactionDAOImpl.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Services/transaction/TransactionService.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/persistence/DAOImplementations/TypeTransactionDAOImpl.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Transaction/src/Models/TypeTransaction.java</file>
         </group>
     </open-files>

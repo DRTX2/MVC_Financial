@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Views;
 
 import Models.TypeTransaction;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -13,10 +10,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-/**
- *
- * @author PC
- */
 public class FinanceView
         extends javax.swing.JFrame {
 
@@ -124,8 +117,6 @@ public class FinanceView
         transactions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -140,6 +131,7 @@ public class FinanceView
                 return canEdit [columnIndex];
             }
         });
+        transactions.setToolTipText("");
         jScrollPane1.setViewportView(transactions);
 
         jLabel2.setText("Type");

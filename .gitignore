@@ -1,0 +1,10 @@
+nbproject/private/
+build
+*.jar
+*.war
+*.ear
+*.log
+*.class
+*.tmp
+*.swp
+*.env
