@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionManager {
+
     private List<Transaction> transactions;
 
     public TransactionManager() {
         transactions = new ArrayList<>();
     }
 
-    // Este método permite inicializar el manager con las transacciones cargadas desde la base de datos
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
@@ -26,11 +26,7 @@ public class TransactionManager {
     public double getBalance() {
         double balance = 0;
         for (Transaction t : transactions) {
-            if (t.getType().getDescription().equals("Income")) {
-                balance += t.getAmount();
-            } else {
-                balance -= t.getAmount();
-            }
+            balance += t.getType().getDescription().equals("Income") ? t.getAmount() : -t.getAmount();
         }
         return balance;
     }

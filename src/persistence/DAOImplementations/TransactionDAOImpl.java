@@ -20,7 +20,7 @@ public class TransactionDAOImpl
 
     @Override
     public Integer addTransaction(Transaction transaction) throws SQLException {
-        System.out.println(transaction);
+        System.out.println("Adding: "+transaction);
         String sql = "INSERT INTO transaction (id_type_transaction, amount_transaction, date_transaction, description_transaction) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, transaction.getType().getId());
@@ -49,11 +49,11 @@ public class TransactionDAOImpl
             while (rs.next()) {
                 // Crear y agregar transacciones a la lista
                 Transaction transaction = new Transaction(
-                        rs.getInt("id-transaction"),
-                        TypeTransaction.fromId(rs.getInt("id_type_transaction-transaction")),
-                        rs.getDouble("amount-transaction"),
-                        rs.getTimestamp("date-transaction").toLocalDateTime(),
-                        rs.getString("description-transaction")
+                        rs.getInt("id_transaction"),
+                        TypeTransaction.fromId(rs.getInt("id_type_transaction")),
+                        rs.getDouble("amount_transaction"),
+                        rs.getTimestamp("date_transaction").toLocalDateTime(),
+                        rs.getString("description_transaction")
                 );
                 transactions.add(transaction);
             }
@@ -65,6 +65,7 @@ public class TransactionDAOImpl
 
     @Override
     public void editTransaction(Transaction transaction) throws SQLException {
+        System.out.println("Updating: "+transaction);
         if (transaction.getId() == null) {
             throw new DAOException("Transaction ID must not be null\nTransaction is possibly not registered");
         }
@@ -99,6 +100,7 @@ public class TransactionDAOImpl
 
     @Override
     public void deleteTransaction(Transaction transaction) throws SQLException {
+        System.out.println("Deleting: "+transaction);
         String sql = "DELETE FROM transaction WHERE id_transaction = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, transaction.getId());

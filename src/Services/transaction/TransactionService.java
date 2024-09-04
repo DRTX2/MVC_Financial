@@ -2,6 +2,7 @@ package Services.transaction;
 
 import Models.Transaction;
 import Models.TransactionManager;
+import Views.TransactionTableModel;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -13,17 +14,17 @@ public class TransactionService {
 
     private final TransactionDAO transactionDAO;
     private final TransactionManager transactionManager;
-    
     // Constructor con inyección de dependencia
-    public TransactionService(TransactionDAO transactionDAO,TransactionManager transactionManager) {
+    public TransactionService(TransactionDAO transactionDAO,TransactionManager transactionManager) throws ServiceException {
         this.transactionDAO = transactionDAO;
-        this.transactionManager=transactionManager;
+        this.transactionManager = transactionManager;
+        this.transactionManager.setTransactions(getAllTransactions());
     }
 
     public double calculateBalance() {
         return transactionManager.getBalance();
     }
-
+    
     public List<Transaction> getTransactions() {
         return transactionManager.getTransactions();
     }
