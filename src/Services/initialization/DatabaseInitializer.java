@@ -1,7 +1,7 @@
 package Services.initialization;
 
 import Services.typeTransaction.TypeTransactionService;
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 import services.exceptions.ServiceException;
 
 public class DatabaseInitializer {

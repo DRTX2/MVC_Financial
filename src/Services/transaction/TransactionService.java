@@ -1,7 +1,7 @@
 package Services.transaction;
 
-import Models.Transaction;
-import Models.TransactionManager;
+import Models.transaction.Transaction;
+import Models.transaction.TransactionManager;
 import Views.TransactionTableModel;
 import java.sql.SQLException;
 import java.util.List;

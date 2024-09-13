@@ -1,7 +1,7 @@
 package Views;
 
-import Models.Transaction;
-import Models.TransactionManager;
+import Models.transaction.Transaction;
+import Models.transaction.TransactionManager;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import utils.DateUtils;

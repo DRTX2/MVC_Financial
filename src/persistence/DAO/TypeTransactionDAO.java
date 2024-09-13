@@ -1,6 +1,6 @@
 package persistence.DAO;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 import java.util.List;
 
 public interface TypeTransactionDAO {

@@ -1,6 +1,6 @@
 package persistence.DAOImplementations;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 import persistence.DAO.TypeTransactionDAO;
 import persistence.exceptions.DAOException;
 import java.sql.*;

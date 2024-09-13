@@ -4,6 +4,8 @@
  */
 package Views;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author PC
@@ -11,11 +13,12 @@ package Views;
 public class Register
         extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register
-     */
     public Register() {
         initComponents();
+    }
+    
+    public static JPanel getPanel(){
+        return jPanel1;
     }
 
     /**
@@ -141,7 +144,7 @@ public class Register
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private static javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

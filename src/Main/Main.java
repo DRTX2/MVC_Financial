@@ -3,7 +3,7 @@ package Main;
 
 import Controllers.FinanceController;
 import Controllers.FinanceControllerParams;
-import Models.TransactionManager;
+import Models.transaction.TransactionManager;
 import Services.initialization.DatabaseInitializer;
 import Services.transaction.TransactionService;
 import Services.typeTransaction.TypeTransactionService;

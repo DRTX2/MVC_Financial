@@ -1,8 +1,8 @@
 package persistence.DAOImplementations;
 
 import persistence.DatabaseConnection;
-import Models.Transaction;
-import Models.TypeTransaction;
+import Models.transaction.Transaction;
+import Models.transaction.TypeTransaction;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

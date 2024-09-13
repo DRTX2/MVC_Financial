@@ -1,7 +1,7 @@
 
 package Services.typeTransaction;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 import services.exceptions.ServiceException;
 
 public class TypeTransactionValidationService {

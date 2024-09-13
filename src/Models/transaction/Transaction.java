@@ -1,5 +1,5 @@
 
-package Models;
+package Models.transaction;
 
 import java.time.LocalDateTime;
 

@@ -1,9 +1,8 @@
 package Controllers;
 
-import Models.Transaction;
-import Models.TypeTransaction;
+import Models.transaction.Transaction;
+import Models.transaction.TypeTransaction;
 import Services.transaction.TransactionService;
-import Services.typeTransaction.TypeTransactionService;
 
 import Views.FinanceView;
 import Views.TransactionTableModel;
@@ -11,7 +10,6 @@ import Views.TransactionTableModel;
 import java.sql.SQLException;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +20,7 @@ import javax.swing.JOptionPane;
 import services.exceptions.ServiceException;
 import utils.DateUtils;
 
-public class FinanceController {
+public class FinanceController implements Controller{
     private final FinanceView view;
     private final TransactionService transactionService;
     private final TransactionTableModel tableModel;
@@ -43,8 +41,8 @@ public class FinanceController {
         this.tableModel.setTransactionsInManager(previousTransactions);
     }
 
+    @Override
     public void start() {
-        //añadir algo para ver si los datos iniciales requeridos estan en la bd, como si se subieron los enums
         fillComboBox();
         loadTransactionsToDB();
         updateBalance();

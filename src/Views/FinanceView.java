@@ -1,11 +1,12 @@
 package Views;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -16,6 +17,10 @@ public class FinanceView
         initComponents();
     }
 
+    public static JPanel getPanel(){
+        return jPanel1;
+    }
+    
     public JButton getAddTransaction() {
         return addTransaction;
     }
@@ -265,7 +270,7 @@ public class FinanceView
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private static javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable transactions;
     private javax.swing.JComboBox<TypeTransaction> typeTransaction;
