@@ -1,6 +1,6 @@
 package Services.typeTransaction;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 import java.sql.SQLException;
 import java.util.List;
 import persistence.DAO.TypeTransactionDAO;

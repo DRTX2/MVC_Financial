@@ -8,3 +8,12 @@ build
 *.tmp
 *.swp
 *.env
+
+
+# Ignorar archivos jar en la carpeta lib
+lib/*.jar
+
+# Ignorar configuraciones generadas de NetBeans
+nbproject/private/
+build/
+dist/

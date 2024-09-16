@@ -1,18 +1,26 @@
 package Views;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class FinanceView
         extends javax.swing.JFrame {
+    
+    public FinanceView() {
+        initComponents();
+    }
 
+    public static JPanel getPanel(){
+        return jPanel1;
+    }
+    
     public JButton getAddTransaction() {
         return addTransaction;
     }
@@ -21,13 +29,6 @@ public class FinanceView
         this.addTransaction = addTransaction;
     }
     
-    /**
-     * Creates new form Finance
-     */
-    public FinanceView() {
-        initComponents();
-    }
-
     public JTextField getAmountTransaction() {
         return AmountTransaction;
     }
@@ -114,23 +115,7 @@ public class FinanceView
 
         jLabel1.setText("Financial Area");
 
-        transactions.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Type", "Amount", "Date", "Description"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        transactions.setModel(TransactionTableModel.getInstance());
         transactions.setToolTipText("");
         jScrollPane1.setViewportView(transactions);
 
@@ -285,7 +270,7 @@ public class FinanceView
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private static javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable transactions;
     private javax.swing.JComboBox<TypeTransaction> typeTransaction;

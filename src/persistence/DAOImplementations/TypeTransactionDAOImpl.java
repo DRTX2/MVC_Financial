@@ -1,12 +1,12 @@
 package persistence.DAOImplementations;
 
-import Models.TypeTransaction;
+import Models.transaction.TypeTransaction;
 import persistence.DAO.TypeTransactionDAO;
 import persistence.exceptions.DAOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import persistence.DatabaseConnection;
+import utils.DatabaseConnection;
 
 public class TypeTransactionDAOImpl implements TypeTransactionDAO {
 

@@ -1,46 +1,58 @@
 package Controllers;
 
-import Models.Transaction;
-import Models.TypeTransaction;
+import Models.transaction.Transaction;
+import Models.transaction.TypeTransaction;
 import Services.transaction.TransactionService;
-import Services.typeTransaction.TypeTransactionService;
 
 import Views.FinanceView;
+import Views.TransactionTableModel;
 
 import java.sql.SQLException;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+import services.exceptions.ServiceException;
+import utils.DateUtils;
 
-public class FinanceController {
-
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
+public class FinanceController implements Controller{
     private final FinanceView view;
     private final TransactionService transactionService;
-    private final TypeTransactionService typeTransactionService;
+    private final TransactionTableModel tableModel;
 
     public FinanceController(FinanceControllerParams params) throws SQLException {
         this.view = params.getView();
         this.transactionService = params.getTransactionService();
-        this.typeTransactionService = params.getTypeTransactionService();
+        this.tableModel=TransactionTableModel.getInstance();
+    }
+    
+    public void loadTransactionsToDB(){
+        List<Transaction> previousTransactions=new  ArrayList<>();
+        try {
+            previousTransactions = transactionService.getAllTransactions();
+        } catch (ServiceException ex) {
+            Logger.getLogger(FinanceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.tableModel.setTransactionsInManager(previousTransactions);
     }
 
+    @Override
     public void start() {
-        //añadir algo para ver si los datos iniciales requeridos estan en la bd, como si se subieron los enums
         fillComboBox();
-        addListeners();
+        loadTransactionsToDB();
         updateBalance();
+        addListeners();
         view.setVisible(true);
     }
 
     private void fillComboBox() {
-        for (TypeTransaction type : TypeTransaction.values()) {
+        for (TypeTransaction type : TypeTransaction.values())
             view.getTypeTransaction().addItem(type);
-        }
     }
 
     private void addListeners() {
@@ -51,6 +63,7 @@ public class FinanceController {
         try {
             Transaction transaction = createTransactionFromView();
             transactionService.addTransaction(transaction);
+            tableModel.addTransaction(transaction);
             updateBalance();
         } catch (Exception e) {
             handleTransactionError(e);
@@ -71,7 +84,7 @@ public class FinanceController {
     private LocalDateTime parseDateTime(String dateTimeString) {
         System.out.println("dateTime: " + dateTimeString);
         try {
-            return LocalDateTime.parse(dateTimeString.trim(), this.DATE_TIME_FORMATTER);
+            return LocalDateTime.parse(dateTimeString.trim(), DateUtils.DATE_TIME_FORMATTER );
         } catch (DateTimeParseException e) {
             throw new IllegalArgumentException("Formato de fecha y hora incorrecto. Use 'yyyy-MM-dd HH:mm:ss'.", e);
         }

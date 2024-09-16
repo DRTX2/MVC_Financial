@@ -3,7 +3,7 @@ package Main;
 
 import Controllers.FinanceController;
 import Controllers.FinanceControllerParams;
-import Models.TransactionManager;
+import Models.transaction.TransactionManager;
 import Services.initialization.DatabaseInitializer;
 import Services.transaction.TransactionService;
 import Services.typeTransaction.TypeTransactionService;
@@ -12,13 +12,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import persistence.DAOImplementations.TransactionDAOImpl;
-import persistence.DAOImplementations.TypeTransactionDAOImpl;
 import services.exceptions.ServiceException;
 
 
 public class Main {
     // Bien, ahora quiero que se guarden los enums que tenia desde un inicio antes de continuar
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ServiceException {
         FinanceView view=new FinanceView();
         TransactionDAOImpl transactionDao=new TransactionDAOImpl();
         TransactionService transactionService=new TransactionService(transactionDao, new TransactionManager());

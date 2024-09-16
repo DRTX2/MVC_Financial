@@ -1,4 +1,4 @@
-package Models;
+package Models.transaction;
 
 public enum TypeTransaction {
     INCOME(1,"Income"),

@@ -1,6 +1,6 @@
 package persistence.DAO;
 
-import Models.Transaction;
+import Models.transaction.Transaction;
 import java.util.List;
 import java.sql.SQLException;
 

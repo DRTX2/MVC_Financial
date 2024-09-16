@@ -1,6 +1,6 @@
 package Services.transaction;
 
-import Models.Transaction;
+import Models.transaction.Transaction;
 
 public class TransactionValidationService {
 
