@@ -25,7 +25,7 @@ public class AplicationHandler extends JFrame {
     }
 
     public void setPanels(){
-        cardPanel.add(Login.getPanel(), "login");
+        cardPanel.add(UserRegister.getPanel(), "login");
         cardPanel.add(Register.getPanel(), "register");
         cardPanel.add(FinanceView.getPanel(), "financial");
     }

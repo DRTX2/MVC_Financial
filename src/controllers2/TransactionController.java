@@ -1,5 +1,8 @@
-package Controllers;
+package controllers2;
 
+import Controllers.Controller;
+import Controllers.FinanceController;
+import Controllers.FinanceControllerParams;
 import Models.transaction.Transaction;
 import Models.transaction.TypeTransaction;
 import Services.transaction.TransactionService;
@@ -19,23 +22,25 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import services.exceptions.ServiceException;
 import utils.DateUtils;
+
 /*
-public class FinanceController implements Controller{
+public class TransactionController implements Controller{
     private final FinanceView view;
-    private final TransactionService transactionService;
+    private final Transaction transactionService;
     private final TransactionTableModel tableModel;
 
-    public FinanceController(FinanceControllerParams params) throws SQLException {
+    public TransactionController(FinanceControllerParams params) throws SQLException {
         this.view = params.getView();
-        this.transactionService = params.getTransactionService();
+        //this.transactionService = params.getTransactionService();
+        transactionService= new Transaction();
         //this.tableModel=TransactionTableModel.getInstance();
     }
     
     public void loadTransactionsToDB(){
         List<Transaction> previousTransactions=new  ArrayList<>();
         try {
-            previousTransactions = transactionService.getAllTransactions();
-        } catch (ServiceException ex) {
+            //previousTransactions = transactionService.getAllTransactions();
+        } catch (Exception ex) {
             Logger.getLogger(FinanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
         //this.tableModel.setTransactionsInManager(previousTransactions);
@@ -63,7 +68,7 @@ public class FinanceController implements Controller{
         try {
             Transaction transaction = createTransactionFromView();
             transactionService.addTransaction(transaction);
-            // tableModel.addTransaction(transaction);
+            tableModel.addTransaction(transaction);
             updateBalance();
         } catch (Exception e) {
             handleTransactionError(e);
@@ -107,13 +112,15 @@ public class FinanceController implements Controller{
         view.getCurrentBalance().setText(String.valueOf(balance));
     }
 }
+
+
 */
 
-public class FinanceController implements Controller{
+
+public class TransactionController implements Controller{
 
     @Override
     public void start() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
 }
